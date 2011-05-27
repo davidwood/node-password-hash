@@ -1,0 +1,16 @@
+{
+  "name": "password-hash",
+  "description": "Password hashing and verification for node.js",
+  "version": "1.0.0",
+  "author": "David Wood <bitprobe@gmail.com>",
+  "repository": {
+      "type": "git",
+      "url": "http://github.com/davidwood/node-password-hash.git" 
+  },
+  "keywords": ["password", "hash", "utilities"],
+  "devDependencies": {
+    "expresso": ">= 0.7"
+  },
+  "main": "./lib/password-hash.js",
+  "engines": { "node": ">= 0.4.0" }
+}
