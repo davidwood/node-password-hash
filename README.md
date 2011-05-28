@@ -2,6 +2,10 @@
 
 password-hash is a node.js library to simplify use of hashed passwords.
 
+Storing passwords in plain-text is bad.  This library makes the storing of passwords (and subsequent validation of) hashed passwords a bit easier.  
+
+password-hash provides functions for generating a hashed passwords and verifying a plain-text password against a hashed password.  For a bit of added strength, a random salt is generated when the password is hashed.  The hashed password contains both the cryptographic algorithm that was used as well the salt, so all that is needed to verify a plain-text password is the hashed password itself.
+
 ## Installation
 <pre>
     npm install password-hash
