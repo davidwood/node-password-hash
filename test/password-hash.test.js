@@ -73,6 +73,13 @@ module.exports = {
     var parts = hash.split('$');
     assert.length(parts, 3);
     assert.length(parts[1], len);
+  },
+
+  'Check if password is hashed': function() {
+    var password = 'password123';
+    var hash = passwordHash.generate(password);
+    assert.ok(!passwordHash.isHashed(password));
+    assert.ok(passwordHash.isHashed(hash));
   }
 
 };

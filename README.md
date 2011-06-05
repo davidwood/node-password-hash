@@ -51,6 +51,20 @@ Example:
     console.log(passwordHash.verify('Password0', hashedPassword)); // false
 </pre>
 
+### isHashed(password)
+
+Check if a password (`password`) is hashed.  Returns a boolean.
+
+Example:
+<pre>
+    var passwordHash = require('./lib/password-hash');
+
+    var hashedPassword = 'sha1$3I7HRwy7$cbfdac6008f9cab4083784cbd1874f76618d2a97';
+    
+    console.log(passwordHash.isHashed('password123')); // false
+    console.log(passwordHash.isHashed(hashedPassword)); // true
+</pre>
+
 ## Inspired by
 
 password-hash is inspired by the password hashing found in [Werkzeug](http://werkzeug.pocoo.org/).
