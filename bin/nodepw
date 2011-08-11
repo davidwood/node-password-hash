@@ -4,10 +4,10 @@
 
 Usage:
 
-$ nodepw foo
+$ nodepw 'foo'
 -> logs to stdout:  sha1$J8NYON83$0beec7b5ea3f0fdbc95d0dd47f3c5bc275da8a33
 
-$ nodepw -v foo 'sha1$J8NYON83$0beec7b5ea3f0fdbc95d0dd47f3c5bc275da8a33'
+$ nodepw -v 'foo' 'sha1$J8NYON83$0beec7b5ea3f0fdbc95d0dd47f3c5bc275da8a33'
 -> logs to stdout:  Does the string verify the hash? Yes.
 
 */
@@ -17,7 +17,7 @@ var passwordHash = require('password-hash')
   , hash = ''
   , usage = ''
               + '\n'
-              + '  \033[33mUsage: nodepw [options] [string] [hash]\033[37m\n'
+              + '  \033[33mUsage: nodepw [options] [string] [hash]\033[37m\n\n'
               + '  NOTE: Make sure you wrap your [string] and [hash] in single quotes (e.g. \'sha1$Vxh63erc$da39a3ee5e6b4b0d3255bfef95601890afd80709\')\n'
               + '\n'
               + '  Options:\n'
