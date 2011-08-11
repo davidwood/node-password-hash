@@ -17,7 +17,7 @@ var passwordHash = require('password-hash')
   , hash = ''
   , usage = ''
               + '\n'
-              + '  Usage: nodepw [options] [string] [hash]\n'.yellow
+              + '  \033[33mUsage: nodepw [options] [string] [hash]\033[37m\n'
               + '  NOTE: Make sure you wrap your [string] and [hash] in single quotes (e.g. \'sha1$Vxh63erc$da39a3ee5e6b4b0d3255bfef95601890afd80709\')\n'
               + '\n'
               + '  Options:\n'
@@ -26,7 +26,7 @@ var passwordHash = require('password-hash')
   , args = process.argv.slice(2)
 
 
-// Check for colors module (should be a cleaner way, yeah?)
+// Check for colors module (should be a cleaner way, yeah?) -- could remove this dependency if need be
 try{
   require('colors')
 }
