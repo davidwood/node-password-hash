@@ -1,7 +1,7 @@
 {
   "name": "password-hash",
   "description": "Password hashing and verification for node.js",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "author": "David Wood <bitprobe@gmail.com>",
   "repository": {
       "type": "git",
@@ -9,8 +9,10 @@
   },
   "keywords": ["password", "hash", "utilities"],
   "devDependencies": {
-    "expresso": ">= 0.7"
+    "expresso": ">= 0.7",
+		"colors": ">=0.5.0" 
   },
   "main": "./lib/password-hash.js",
-  "engines": { "node": ">= 0.4.0" }
+  "engines": { "node": ">= 0.4.0" },
+	"bin": { "nodepw": "./bin/nodepw" }
 }

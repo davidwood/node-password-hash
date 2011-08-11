@@ -1,0 +1,101 @@
+#!/usr/bin/env node
+
+/* 
+
+Usage:
+
+$ nodepw 'foo'
+-> logs to stdout:  sha1$J8NYON83$0beec7b5ea3f0fdbc95d0dd47f3c5bc275da8a33
+
+$ nodepw -v 'foo' 'sha1$J8NYON83$0beec7b5ea3f0fdbc95d0dd47f3c5bc275da8a33'
+-> logs to stdout:  Does the string verify the hash? Yes.
+
+*/
+
+var passwordHash = require('password-hash')
+  , str = ''
+  , hash = ''
+  , usage = ''
+              + '\n'
+              + '  \033[33mUsage: nodepw [options] [string] [hash]\033[37m\n\n'
+              + '  NOTE: Make sure you wrap your [string] and [hash] in single quotes (e.g. \'sha1$Vxh63erc$da39a3ee5e6b4b0d3255bfef95601890afd80709\')\n'
+              + '\n'
+              + '  Options:\n'
+              + '    -h, --help               Output help information\n'
+              + '    -v, --verify             Verify a string against a hash.\n'
+  , args = process.argv.slice(2)
+
+
+// Check for colors module (should be a cleaner way, yeah?) -- could remove this dependency if need be
+try{
+  require('colors')
+}
+catch(e){
+  abort("\nPlease install the \033[33mcolors\033[37m module globally with npm.\n\n[sudo] npm install colors -g\n")  
+}
+
+// Sort out the args
+while (args.length) {
+  var arg = args.shift()
+  switch (arg) {
+    case '-h':
+    case '--help':
+      abort(usage);
+      break;
+    case '-v':
+    case '--verify':
+      // if there is a verify flag set, the last arg is the hash
+      hash = args.pop()
+      break;
+    default:
+      // str will be set to arg the first, time and ignored (or set to itself after that)
+      str = str || arg;
+      break;
+  }
+}
+
+// What to do...
+(hash) ? verifyHash() : echoHash()
+
+/**
+ * Encrypt the given string and output it.
+ *
+ * @return {Void}
+ */
+
+function echoHash(){
+  
+  var enc = passwordHash.generate(str)
+
+  console.log('\n' + "Encoded string: " + enc.green + '\n')
+  
+  process.exit(0)   
+  
+}
+
+/**
+ * Verify the string and hash and output its verification state.
+ *
+ * @return {Void}
+ */
+
+function verifyHash(){
+
+ var isVerified = ( passwordHash.verify(str, hash) ) ? "Yes.".green : "No.".red 
+
+ console.log("\nDoes the string verify the hash? " + isVerified + '\n')
+
+ process.exit(1)
+}
+
+
+/**
+ * Exit with the given `str`.
+ *
+ * @param {String} str
+ */
+
+function abort(str) {
+  console.error(str);
+  process.exit(1);
+}
