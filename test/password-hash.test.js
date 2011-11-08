@@ -38,7 +38,10 @@ module.exports = {
     var password = 'password123';
     var hash1 = passwordHash.generate(password);
     var hash2 = passwordHash.generate(password);
-    assert.notEqual(hash1, hash2);
+
+    // test that the actual hashes (the last 40 characters for sha1) are not equal
+    assert.notEqual(hash1.substr(-40), hash2.substr(-40));
+
     assert.ok(passwordHash.verify(password, hash1));
     assert.ok(passwordHash.verify(password, hash2));
   },
