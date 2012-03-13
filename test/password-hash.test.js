@@ -71,8 +71,8 @@ module.exports = {
     var hash = passwordHash.generate(password, { algorithm: 'md5', saltLength: len });
     assert.ok(passwordHash.verify(password, hash));
     var parts = hash.split('$');
-    assert.length(parts, 3);
-    assert.length(parts[1], len);
+    assert.equal(parts.length, 3);
+    assert.equal(parts[1].length, len);
   },
 
   'Check if password is hashed': function() {
