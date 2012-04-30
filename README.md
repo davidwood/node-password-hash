@@ -19,6 +19,7 @@ Generates a hash of the required `password` argument.  Hashing behavior can be m
 
 * `algorithm` - A valid cryptographic algorithm for use with the `crypto.createHmac` function, defaults to 'sha1'.
 * `saltLength` - The length of the salt that will be generated when the password is hashed, defaults to 8.
+* `iterations` - The number of times the hashing algorithm should be applied, defaults to 1.
 
 Errors are thrown if:
 
