@@ -65,14 +65,28 @@ module.exports = {
     assert.equal(parts[0], 'md5');
   },
 
+  'md5 hash with 1000 iterations': function() {
+    var password = 'password123';
+    var hash = passwordHash.generate(password, { algorithm: 'md5', iterations: 1000});
+    assert.ok(passwordHash.verify(password, hash));
+    var parts = hash.split('$');
+    assert.equal(parts[0], 'md5');
+  },
+
+  'old 3 token hash should still work': function() {
+    var password = 'password123';
+    var hash = "md5$qel5rKU7$9c9fecf00e965aab1e7801da6e241112"
+    assert.ok(passwordHash.verify(password, hash));
+  },
+
   'Salt length': function() {
     var password = 'password123';
     var len = 20;
     var hash = passwordHash.generate(password, { algorithm: 'md5', saltLength: len });
     assert.ok(passwordHash.verify(password, hash));
     var parts = hash.split('$');
-    assert.length(parts, 3);
-    assert.length(parts[1], len);
+    assert.equal(parts.length, 4);
+    assert.equal(parts[1].length, len);
   },
 
   'Check if password is hashed': function() {
