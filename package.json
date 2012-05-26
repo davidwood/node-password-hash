@@ -1,7 +1,7 @@
 {
   "name": "password-hash",
   "description": "Password hashing and verification for node.js",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "author": "David Wood <bitprobe@gmail.com>",
   "repository": {
       "type": "git",
