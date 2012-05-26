@@ -7,9 +7,8 @@ Storing passwords in plain-text is bad.  This library makes the storing of passw
 password-hash provides functions for generating a hashed passwords and verifying a plain-text password against a hashed password.  For a bit of added strength, a random salt is generated when the password is hashed.  The hashed password contains both the cryptographic algorithm that was used as well the salt, so all that is needed to verify a plain-text password is the hashed password itself.
 
 ## Installation
-<pre>
+
     npm install password-hash
-</pre>
 
 ## Usage
 
@@ -65,6 +64,10 @@ Example:
     console.log(passwordHash.isHashed('password123')); // false
     console.log(passwordHash.isHashed(hashedPassword)); // true
 </pre>
+
+## Salt Generation
+
+node 0.5.8 introduced `crypto.randomBytes`, which generates cryptographically strong pseudo-random data. If the version of node supports `crypto.randomBytes` it is used to generate the salt, otherwise `Math.random`, which is not cryptographically strong, is used. This is handled transparently within the salt generation function and does not impact the module's API. 
 
 ## Inspired by
 
