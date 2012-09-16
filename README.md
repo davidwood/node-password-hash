@@ -1,4 +1,4 @@
-# Password hashing and verification for node.js
+# node-password-hash[![Build Status](https://secure.travis-ci.org/davidwood/node-password-hash.png)](http://travis-ci.org/davidwood/node-password-hash)
 
 password-hash is a node.js library to simplify use of hashed passwords.
 
