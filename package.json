@@ -9,10 +9,13 @@
   },
   "keywords": ["password", "hash", "utilities", "cli"],
   "devDependencies": {
-    "expresso": ">= 0.7",
-		"colors": ">=0.5.0" 
+    "mocha": "*",
+	"colors": ">=0.5.0" 
   },
   "main": "./lib/password-hash.js",
-  "engines": { "node": ">= 0.4.0" },
-	"bin": { "nodepw": "./bin/nodepw" }
+  "scripts": {
+    "test": "make test"
+  },
+  "bin": { "nodepw": "./bin/nodepw" },
+  "engines": { "node": ">= 0.4.0" }
 }
