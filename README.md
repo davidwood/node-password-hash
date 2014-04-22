@@ -1,4 +1,6 @@
-# node-password-hash[![Build Status](https://secure.travis-ci.org/davidwood/node-password-hash.png)](http://travis-ci.org/davidwood/node-password-hash)
+# Deprecated: Use [bcrypt](https://github.com/ncb000gt/node.bcrypt.js) or [scrypt](https://github.com/barrysteyn/node-scrypt)
+
+## node-password-hash[![Build Status](https://secure.travis-ci.org/davidwood/node-password-hash.png)](http://travis-ci.org/davidwood/node-password-hash)
 
 password-hash is a node.js library to simplify use of hashed passwords.
 
